@@ -70,7 +70,7 @@ module WillPaginate
     #
     def will_paginate(collection, options = {})
       # early exit if there is nothing to render
-      return nil unless collection.total_pages > 1
+      return nil unless collection.total_pages > 1 or not options[:no_single_page]
 
       options = WillPaginate::ViewHelpers.pagination_options.merge(options)
 
